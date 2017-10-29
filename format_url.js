@@ -10,8 +10,14 @@ javascript:(
     }
 
     // Google Docs
-    if (location.href.match(/http[s]:\/\/docs\.google\.com\/document\/d\/([^\/]+)\/.*/)) {
+    if (location.href.match(/http[s]:\/\/docs\.google\.com\/document\/d\/([^\/]+)\/.*/) || location.href.match(/http[s]:\/\/docs\.google\.com\/a\/google\.com\/document\/d\/([^\/]+)\/.*/)) {
       url = "https://docs.google.com/document/d/" + RegExp.$1 + "/";
+    }
+    if (location.href.match(/http[s]:\/\/docs\.google\.com\/spreadsheets\/d\/([^\/]+)\/.*/)) {
+      url = "https://docs.google.com/spreadsheets/d/" + RegExp.$1 + "/";
+    }
+    if (location.href.match(/http[s]:\/\/docs\.google\.com\/presentation\/d\/([^\/]+)\/.*/)) {
+      url = "https://docs.google.com/presentation/d/" + RegExp.$1 + "/";
     }
 
     var popup = window.open("","","height=30px,width=430px");
